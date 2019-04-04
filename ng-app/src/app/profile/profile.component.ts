@@ -9,15 +9,12 @@ import { LoginService } from '../Services/login.service';
 })
 export class ProfileComponent implements OnInit {
 
-  user: User = null;
+  currentUser: User = null;
 
   constructor(private loginService: LoginService) { }
 
   ngOnInit() {
-    this.loginService.getCurrentUser()
-      .subscribe((currentUser: User)=>{
-        this.user = currentUser
-      });
+    this.currentUser= this.loginService.getCurrentUser();
   }
 
 }

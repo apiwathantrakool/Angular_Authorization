@@ -25,21 +25,14 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loginService.getCurrentUser()
-      .subscribe((currentUser: User) => {
-        this.currentUser = currentUser
-      });
+    this.currentUser = this.loginService.getCurrentUser();
   }
 
   login() {
-
     const user = this.userService.getUserByUsernamePassword(this.userInput.username, this.userInput.password);
     if (user) {
       this.loginService.setCurrentUser(user);
-      this.loginService.getCurrentUser()
-        .subscribe((currentUser: User) => {
-          this.currentUser = currentUser
-        });
+      this.currentUser= this.loginService.getCurrentUser();
       this.msg = '';
     } else {
       this.msg = 'Fail';
@@ -49,11 +42,7 @@ export class LoginComponent implements OnInit {
 
   logout() {
     this.loginService.setCurrentUser(null);
-    this.loginService.getCurrentUser()
-      .subscribe((currentUser: User) => {
-        this.currentUser = currentUser
-      });
-
+    this.currentUser= this.loginService.getCurrentUser();
     this.userInput.username = '';
     this.userInput.password = '';
   }

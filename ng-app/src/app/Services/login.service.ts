@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { User } from '../Models/user';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +11,7 @@ export class LoginService {
   constructor() { }
 
   getCurrentUser() {
-    const currentUserObserbable = new Observable(observer => {
-      observer.next(this.currentUser);
-    });
-    return currentUserObserbable;
+    return this.currentUser;
   }
 
   setCurrentUser(user: User) {
