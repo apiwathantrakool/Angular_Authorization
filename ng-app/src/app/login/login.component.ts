@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
   currentUser: User = null
 
   userInput = {
-    username: '',
-    password: ''
+    username: 'user01',
+    password: '123456'
   }
 
   msg = '';
@@ -43,8 +43,6 @@ export class LoginComponent implements OnInit {
   logout() {
     this.loginService.setCurrentUser(null);
     this.currentUser= this.loginService.getCurrentUser();
-    this.userInput.username = '';
-    this.userInput.password = '';
   }
 
 }
