@@ -1,3 +1,7 @@
-<p>
-  profile works!
+<p *ngIf="user">
+  {{user.name}}
+</p>
+
+<p *ngIf="!user">
+  No user login
 </p>
