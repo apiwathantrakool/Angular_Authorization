@@ -26,19 +26,20 @@ export class AuthGuard implements CanActivate {
         
         return this.authService.isAuthenticated()
             .then((authenticated: boolean) => {
+
                 if (authenticated) {
                     route.data['roles'].forEach(role => {
-                        console.log(role)
                         this.loginService.getCurrentUser().roles.forEach(userRole => {
-                            console.log(userRole)
                             if (userRole === role){
                                 this.isCanActivate = true;
                             }
                         });
                     });
+
                     if (this.isCanActivate) {
                         return true;
                     }
+
                 } else {
                     return false;
                 }
