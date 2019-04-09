@@ -4,11 +4,12 @@ import { HomeComponent } from './home/home.component';
 import { NewsFeedComponent } from './news-feed/news-feed.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './_Auth/auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'newsFeed', component: NewsFeedComponent },
+  { path: 'newsFeed', canActivate: [AuthGuard], component: NewsFeedComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'login', component: LoginComponent },
 ];
