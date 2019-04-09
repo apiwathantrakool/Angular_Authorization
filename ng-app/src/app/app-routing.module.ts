@@ -10,7 +10,12 @@ import { Role } from './_Constants/Role';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'newsFeed', canActivate: [AuthGuard], data: { roles: [Role.Admin] }, component: NewsFeedComponent },
+  { 
+    path: 'newsFeed',
+    canActivate: [AuthGuard],
+    data: { roles: [Role.Admin] },
+    component: NewsFeedComponent 
+  },
   { path: 'profile', component: ProfileComponent },
   { path: 'login', component: LoginComponent },
 ];
