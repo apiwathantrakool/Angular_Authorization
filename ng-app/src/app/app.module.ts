@@ -9,8 +9,8 @@ import { NewsFeedComponent } from './news-feed/news-feed.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { UserService } from './Services/user.service';
-import { LoginService } from './Services/login.service';
+import { UserService } from './_Services/user.service';
+import { LoginService } from './_Services/login.service';
 
 @NgModule({
   declarations: [
